@@ -190,11 +190,11 @@
 <p><img src="https://github.com/lunarecli/img-storage/blob/main/hexo%20s%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="启动成功效果"><br>本地服务器查看效果：<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a><br>如果加载不出来的话可以尝试使用hexo server -4001</p>
 <p>创建新的个人博客</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="string">&#x27;FILE&#x27;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/lunarecli/img-storage/blob/main/hexo%20new%E7%BB%93%E6%9E%9C.png" alt="hexo new结果"></p>
+<p><img src="https://github.com/lunarecli/lunarecli.github.io/blob/main/hexo%20new%E7%BB%93%E6%9E%9C.png" alt="hexo new结果"></p>
 <h4 id="上传至GitHub"><a href="#上传至GitHub" class="headerlink" title="上传至GitHub"></a>上传至GitHub</h4><p>在GitHub上新建一个仓库，仓库名称为 用户名称.github.io<br>下载git部署插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<p>修改目录下_config文件内容，拉到最下面修改如下<br><img src="https://github.com/lunarecli/img-storage/blob/main/config%E4%BF%AE%E6%94%B9.png" alt="config的修改"><br>（冒号后面有一个空格别忘了）<br>repo中填写要上传的仓库网址，如果https格式无法上传的话请转用ssh格式<br>注意在仓库的setting下的branch查看默认分支，保持_config中的branch与默认分支一致<br>（分支之后可以用来调试，在测试无误之后再进行合并，不过现在暂时用不上）</p>
+<p>修改目录下_config文件内容，拉到最下面修改如下<br><img src="https://github.com/lunarecli/lunarecli.github.io/blob/main/config%E4%BF%AE%E6%94%B9.png" alt="config的修改"><br>（冒号后面有一个空格别忘了）<br>repo中填写要上传的仓库网址，如果https格式无法上传的话请转用ssh格式<br>注意在仓库的setting下的branch查看默认分支，保持_config中的branch与默认分支一致<br>（分支之后可以用来调试，在测试无误之后再进行合并，不过现在暂时用不上）</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44723773/article/details/118517974">进行全局配置之后进行GitHub配置</a><br>全局配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config –global user.name <span class="string">&#x27;GitHub用户名&#x27;</span> </span><br><span class="line">git config –global user.email <span class="string">&#x27;GitHub使用的邮箱地址&#x27;</span></span><br></pre></td></tr></table></figure>
 
@@ -205,7 +205,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 <p>_config文件中可以设置的很多，包括样式theme等等<br>代码方式下载主题样式</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> 下载地址 要下载到的文件夹</span><br></pre></td></tr></table></figure>
-<p>图片上传至GitHub后无法显示可能是因为图片名称设置错误，也可能是因为DNS污染，<a target="_blank" rel="noopener" href="https://blog.csdn.net/sunyctf/article/details/124112909">具体解决方式</a><br><img src="https://github.com/RGNil/2020MCM_paper/blob/master/contents.png" alt="contents"><br>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?vd_source=8124a68b9a0298d6d18e2debf8da23d5">从零搭建自己的个人博客</a></p>
+<p>图片上传至GitHub后无法显示可能是因为图片名称设置错误，也可能是因为DNS污染，<a target="_blank" rel="noopener" href="https://blog.csdn.net/sunyctf/article/details/124112909">具体解决方式</a><br><img src="/img/touxiang.jpeg" alt="bendi"><br><img src="https://cn.bing.com/images/search?view=detailV2&ccid=elLrP+5/&id=F6E1CE64EB71F381373D385B72A920F3914868F3&thid=OIP.elLrP-5_1zgSx4jzpH30RwAAAA&mediaurl=https://ts1.cn.mm.bing.net/th/id/R-C.7a52eb3fee7fd73812c788f3a47df447?rik=82hIkfMgqXJbOA&riu=http%253a%252f%252fbpic.588ku.com%252felement_pic%252f01%252f29%252f32%252f72573adeec190b5.jpg&ehk=8opiOglSg5avjNaVX9DlmPq1PyrN5mJiQ7rC3rlFeOU%253d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1&srh=800&srw=800&exph=260&expw=260&q=github%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E6%98%BE%E7%A4%BA&simid=608003593812971484&FORM=IRPRST&ck=CC00C9505035E497CADC904D5185F72A&selectedIndex=19&ajaxhist=0&ajaxserp=0" alt="baidu"><br>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?vd_source=8124a68b9a0298d6d18e2debf8da23d5">从零搭建自己的个人博客</a></p>
 
       
 
