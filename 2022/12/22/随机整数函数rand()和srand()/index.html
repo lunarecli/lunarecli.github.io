@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/12 | Lunarecli的个人博客</title>
+  <title>随机整数函数rand()和srand() | Lunarecli的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lunarecli的个人博客">
-<meta property="og:url" content="http://example.com/archives/2022/12/index.html">
+  <meta name="description" content="rand()函数rand();  该函数返回 0～32767 之间的一个整数，使用之前记得引用头函数 &lt;stdlib.h&gt; 。 int number&#x3D;rand()%(n-m+1)+m;  产生一个[m,n]范围内的伪随机整数。 %意味着对(n-m+1)取余数，即返回除以(n-m+1)的值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="随机整数函数rand()和srand()">
+<meta property="og:url" content="http://example.com/2022/12/22/%E9%9A%8F%E6%9C%BA%E6%95%B4%E6%95%B0%E5%87%BD%E6%95%B0rand()%E5%92%8Csrand()/index.html">
 <meta property="og:site_name" content="Lunarecli的个人博客">
+<meta property="og:description" content="rand()函数rand();  该函数返回 0～32767 之间的一个整数，使用之前记得引用头函数 &lt;stdlib.h&gt; 。 int number&#x3D;rand()%(n-m+1)+m;  产生一个[m,n]范围内的伪随机整数。 %意味着对(n-m+1)取余数，即返回除以(n-m+1)的值。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-22T12:22:22.341Z">
 <meta property="article:author" content="Lunarecli">
-<meta property="article:tag" content="Lunarecli">
+<meta property="article:tag" content="C语言">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Lunarecli的个人博客" type="application/atom+xml">
@@ -151,36 +155,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-随机整数函数rand()和srand()" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/12/22/%E9%9A%8F%E6%9C%BA%E6%95%B4%E6%95%B0%E5%87%BD%E6%95%B0rand()%E5%92%8Csrand()/" class="archive-article-date">
-  	<time datetime="2022-12-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/22/%E9%9A%8F%E6%9C%BA%E6%95%B4%E6%95%B0%E5%87%BD%E6%95%B0rand()%E5%92%8Csrand()/">随机整数函数rand()和srand()</a>
+    <h1 class="article-title" itemprop="name">
+      随机整数函数rand()和srand()
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2022/12/22/%E9%9A%8F%E6%9C%BA%E6%95%B4%E6%95%B0%E5%87%BD%E6%95%B0rand()%E5%92%8Csrand()/" class="archive-article-date">
+  	<time datetime="2022-12-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="rand-函数"><a href="#rand-函数" class="headerlink" title="rand()函数"></a>rand()函数</h2><pre><code>rand();
+</code></pre>
+<p>该函数返回 0～32767 之间的一个整数，使用之前记得<strong>引用头函数 &lt;stdlib.h&gt;</strong> 。</p>
+<pre><code>int number=rand()%(n-m+1)+m;
+</code></pre>
+<p>产生一个[m,n]范围内的伪随机整数。</p>
+<p><em>%意味着对(n-m+1)取余数，即返回除以(n-m+1)的值。</em></p>
+<span id="more"></span>
+
+<p>说是伪随机整数是因为，虽然产生的数字是随机的，但每次产生的数字序列都相同。因为rand()随机函数会根据前一个随机函数的值，决定下一个随机函数的值。即：只要第一个随机函数的值确定了，那么后面数字序列就是确定的。</p>
+<p>在无指定情况下，rand()函数自动设计随机数种子为1。为了解决这个问题，我们可以使用srand()函数，来随机决定第一个随机函数的值。</p>
+<h2 id="srand-函数和time-函数"><a href="#srand-函数和time-函数" class="headerlink" title="srand()函数和time()函数"></a>srand()函数和time()函数</h2><p>使用之前要先**引用头文件&lt;stdlib.h&gt;和&lt;time.h&gt;**使用方式为：</p>
+<pre><code>srand((usigned int)time(0));
+</code></pre>
+<p>srand()函数返回值类型为void。</p>
+<p><em>usigned int指的是无符号类型整数，无符号类型可存储的数据大小范围是有符号类型的两倍，除了char类型外其他类型默认有符号。在此处可以不加也可以加。</em></p>
+<p><em>除了time()函数外也可以使用getpid()函数，其返回值为当前进程的ID。</em></p>
+<p>time()函数所获取的是从1970年1月1日零时到目前为止所经过的秒数。</p>
+<p>rand()函数在每次被调用时，都会查看之前是否调用了srand()函数，如果没有，那么默认调用srand(1)作为随机种子。</p>
+<p>例如，如果需要产生一个5-100内的随机数，可以使用：</p>
+<pre><code>srand((unsigned int)time(0));
+int number=rand()%96+5;
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -192,84 +238,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/12/22/%E9%9A%8F%E6%9C%BA%E6%95%B4%E6%95%B0%E5%87%BD%E6%95%B0rand()%E5%92%8Csrand()/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/12/20/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95%20%E9%99%84%E5%B8%A6%E9%81%87%E5%88%B0%E7%9A%84bug%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2022-12-20T09:52:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/12/20/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95%20%E9%99%84%E5%B8%A6%E9%81%87%E5%88%B0%E7%9A%84bug%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">搭建个人博客记录（附带遇到的bug及解决方式）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/20/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95%20%E9%99%84%E5%B8%A6%E9%81%87%E5%88%B0%E7%9A%84bug%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/">搭建个人博客记录（附带遇到的bug及解决方式）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">搭建记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rand-%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">rand()函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srand-%E5%87%BD%E6%95%B0%E5%92%8Ctime-%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">srand()函数和time()函数</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/12/18/hello-world/" class="archive-article-date">
-  	<time datetime="2022-12-18T11:05:16.979Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-18</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/18/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -292,8 +373,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
